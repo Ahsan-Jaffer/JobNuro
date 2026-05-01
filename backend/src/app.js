@@ -10,6 +10,8 @@ import authRoutes from "./routes/auth.routes.js";
 import { notFoundMiddleware } from "./middlewares/notFound.middleware.js";
 import { errorMiddleware } from "./middlewares/error.middleware.js";
 import resumeRoutes from "./routes/resume.routes.js";
+import jobRoutes from "./routes/job.routes.js";
+import recommendationRoutes from "./routes/recommendation.routes.js";
 
 const app = express();
 
@@ -41,6 +43,9 @@ app.get("/", (req, res) => {
 app.use("/api/health", healthRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/resumes", resumeRoutes);
+app.use("/api/jobs", jobRoutes);
+app.use("/api/recommendations", recommendationRoutes);
+
 
 
 app.use(notFoundMiddleware);
