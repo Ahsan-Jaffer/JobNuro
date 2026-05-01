@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 
 import { env } from "./config/env.js";
 import healthRoutes from "./routes/health.routes.js";
+import authRoutes from "./routes/auth.routes.js";
 import { notFoundMiddleware } from "./middlewares/notFound.middleware.js";
 import { errorMiddleware } from "./middlewares/error.middleware.js";
 
@@ -35,6 +36,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/health", healthRoutes);
+app.use("/api/auth", authRoutes);
 
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);
