@@ -9,6 +9,7 @@ import healthRoutes from "./routes/health.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 import { notFoundMiddleware } from "./middlewares/notFound.middleware.js";
 import { errorMiddleware } from "./middlewares/error.middleware.js";
+import resumeRoutes from "./routes/resume.routes.js";
 
 const app = express();
 
@@ -24,6 +25,8 @@ app.use(express.json({ limit: "2mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+
+
 if (env.nodeEnv === "development") {
   app.use(morgan("dev"));
 }
@@ -37,6 +40,8 @@ app.get("/", (req, res) => {
 
 app.use("/api/health", healthRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/resumes", resumeRoutes);
+
 
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);
