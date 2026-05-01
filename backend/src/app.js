@@ -12,6 +12,8 @@ import { errorMiddleware } from "./middlewares/error.middleware.js";
 import resumeRoutes from "./routes/resume.routes.js";
 import jobRoutes from "./routes/job.routes.js";
 import recommendationRoutes from "./routes/recommendation.routes.js";
+import skillGapRoutes from "./routes/skillGap.routes.js";
+
 
 const app = express();
 
@@ -45,7 +47,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/resumes", resumeRoutes);
 app.use("/api/jobs", jobRoutes);
 app.use("/api/recommendations", recommendationRoutes);
-
+app.use("/api/skill-gaps", skillGapRoutes);
 
 
 app.use(notFoundMiddleware);
